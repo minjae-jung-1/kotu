@@ -2,7 +2,6 @@ import './index.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-
 const scene = new THREE.Scene();
 
 //      --------      camera arguments      --------      //
@@ -39,9 +38,26 @@ const controls = new OrbitControls( camera, renderer.domElement)
 
 const loader = new GLTFLoader();
 
-loader.load( './assets/makar/scene.gltf',( gltf ) => {
-	scene.add( gltf.scene );
+loader.load( './assets/shiba/scene.gltf', ( gltf ) => {
+	scene.add(gltf.scene);
 });
+
+loader.load( './assets/makar/scene.gltf', ( gltf ) => {
+  gltf.scene.translateY(1)
+	scene.add(gltf.scene);
+});
+loader.load( './assets/dogge/scene.gltf', ( gltf ) => {
+  gltf.scene.translateX(4)
+  gltf.scene.scale.set(5,5,5)
+	scene.add(gltf.scene);
+});
+
+// loader.load( './assets/of_planes_and_satellites/scene.gltf', ( gltf ) => {
+
+//   gltf.scene.scale.set(200,200,200)
+
+// 	scene.add(gltf.scene);
+// });
 
 
 // set up vectors that define the shape
@@ -54,22 +70,26 @@ const tkgeometry = new THREE.TorusKnotGeometry(10,3,64,8,2,3);
 const tkmaterial = new THREE.MeshStandardMaterial( { color: 0xFF6347 } );
 const torusKnot = new THREE.Mesh( tkgeometry, tkmaterial );
 
-//set up light sources
+//set up light sources LIGHTS
 
 //point light is just a light source on a specfic point
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(30,20,20)
 
 //ambient light that acts like a flood light
-const ambientLight = new THREE.AmbientLight(0xffffff);
+// const ambientLight = new THREE.AmbientLight(0xffffff);
+const doggepointLight = new THREE.PointLight(0x00FF00);
+doggepointLight.position.set(5,5,5)
 
 //helpers for light
 const lightHelper = new THREE.PointLightHelper(pointLight);
+const doggelightHelper = new THREE.PointLightHelper(doggepointLight);
 const gridHelper = new THREE.GridHelper(200, 50)
 
-scene.add(lightHelper, gridHelper)
+
+scene.add(lightHelper, gridHelper, doggelightHelper)
 // scene.add(torusKnot)
-scene.add(pointLight, ambientLight)
+scene.add(pointLight, ambientLight, doggepointLight)
 // scene.add(torusKnot)
 
 // CONTROLS //
