@@ -1,0 +1,11 @@
+Model Information:
+* title:	Basic Dog with animation
+* source:	https://sketchfab.com/3d-models/basic-dog-with-animation-eb4fa44c4c934495a5c1f5a97c948cf5
+* author:	⚡ crwde (https://sketchfab.com/crwde)
+
+Model License:
+* license type:	CC-BY-ND-4.0 (http://creativecommons.org/licenses/by-nd/4.0/)
+* requirements:	Author must be credited. Modified versions can not be distributed. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Basic Dog with animation" (https://sketchfab.com/3d-models/basic-dog-with-animation-eb4fa44c4c934495a5c1f5a97c948cf5) by ⚡ crwde (https://sketchfab.com/crwde) licensed under CC-BY-ND-4.0 (http://creativecommons.org/licenses/by-nd/4.0/)
