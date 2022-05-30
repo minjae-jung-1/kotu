@@ -38,26 +38,26 @@ const controls = new OrbitControls( camera, renderer.domElement)
 
 const loader = new GLTFLoader();
 
-loader.load( './assets/shiba/scene.gltf', ( gltf ) => {
-	scene.add(gltf.scene);
-});
-
-loader.load( './assets/makar/scene.gltf', ( gltf ) => {
-  gltf.scene.translateY(1)
-	scene.add(gltf.scene);
-});
-loader.load( './assets/dogge/scene.gltf', ( gltf ) => {
-  gltf.scene.translateX(4)
-  gltf.scene.scale.set(5,5,5)
-	scene.add(gltf.scene);
-});
-
-// loader.load( './assets/of_planes_and_satellites/scene.gltf', ( gltf ) => {
-
-//   gltf.scene.scale.set(200,200,200)
-
+// loader.load( './assets/shiba/scene.gltf', ( gltf ) => {
 // 	scene.add(gltf.scene);
 // });
+
+// loader.load( './assets/makar/scene.gltf', ( gltf ) => {
+//   gltf.scene.translateY(1)
+// 	scene.add(gltf.scene);
+// });
+// loader.load( './assets/dogge/scene.gltf', ( gltf ) => {
+//   gltf.scene.translateX(4)
+//   gltf.scene.scale.set(5,5,5)
+// 	scene.add(gltf.scene);
+// });
+let earf
+loader.load( './assets/of_planes_and_satellites/scene.gltf', ( gltf ) => {
+  earf = gltf
+  gltf.scene.scale.set(500,500,500)
+
+	scene.add(gltf.scene);
+});
 
 
 // set up vectors that define the shape
@@ -77,7 +77,7 @@ const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(30,20,20)
 
 //ambient light that acts like a flood light
-// const ambientLight = new THREE.AmbientLight(0xffffff);
+const ambientLight = new THREE.AmbientLight(0xffffff);
 const doggepointLight = new THREE.PointLight(0x00FF00);
 doggepointLight.position.set(5,5,5)
 
@@ -116,6 +116,11 @@ function animate(){
   // torusKnot.rotation.x += 0.01;
   // torusKnot.rotation.y += 0.005;
   // torusKnot.rotation.z += .01;
+
+  earf.scene.rotation.x +=.001
+  earf.scene.rotation.y +=.002
+
+
   controls.update()
 
   renderer.render( scene, camera)
